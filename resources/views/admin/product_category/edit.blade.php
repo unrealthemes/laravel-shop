@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Add new category')
+@section('title', 'Edit category')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Add new category</h1>
+                    <h1 class="m-0">Edit category: {{ $category['title'] }}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -28,19 +28,20 @@
                 <div class="col-lg-12">
                     <div class="card card-primary">
                         <!-- form start -->
-                        <form action="{{ route('category.store') }}" method="POST">
+                        <form action="{{ route('product_category.update', $category['id']) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name</label>
-                                    <input type="text" name="title" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Enter category name" required>
+                                    <input type="text" value="{{ $category['title'] }}" name="title" class="form-control"
+                                        id="exampleInputEmail1" placeholder="Enter category name" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>

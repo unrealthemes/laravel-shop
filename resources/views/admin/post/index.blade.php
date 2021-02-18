@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Все статьи')
+@section('title', 'All posts')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Все статьи</h1>
+                    <h1 class="m-0">All posts</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -33,13 +33,13 @@
                                     ID
                                 </th>
                                 <th>
-                                    Название
+                                    Name
                                 </th>
                                 <th>
-                                    Категория
+                                    Category
                                 </th>
                                 <th>
-                                    Дата добавления
+                                    Date create
                                 </th>
                                 <th style="width: 30%">
                                 </th>
@@ -65,7 +65,7 @@
                                         <a class="btn btn-info btn-sm" href="{{ route('post.edit', $post['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
-                                            Редактировать
+                                            Edit
                                         </a>
                                         <form action="{{ route('post.destroy', $post['id']) }}" method="POST"
                                             style="display: inline-block">
@@ -74,7 +74,7 @@
                                             <button type="submit" class="btn btn-danger btn-sm delete-btn">
                                                 <i class="fas fa-trash">
                                                 </i>
-                                                Удалить
+                                                Delete
                                             </button>
                                         </form>
                                     </td>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Админ-панель - @yield('title')</title>
+    <title>Admin - @yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -38,7 +38,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Админ-панель</span>
+                <span class="brand-text font-weight-light">Admin panel</span>
             </a>
 
             <!-- Sidebar -->
@@ -65,7 +65,7 @@
                             <a href="{{ route('homeAdmin') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Главная
+                                    Dashboard
                                 </p>
                             </a>
                         </li>
@@ -73,19 +73,19 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-newspaper"></i>
                                 <p>
-                                    Блог
+                                    Blog
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('post.index') }}" class="nav-link">
-                                        <p>Все статьи</p>
+                                        <p>All posts</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('post.create') }}" class="nav-link">
-                                        <p>Добавить статью</p>
+                                        <p>Add posts</p>
                                     </a>
                                 </li>
                             </ul>
@@ -94,19 +94,61 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-align-left"></i>
                                 <p>
-                                    Категории
+                                    Post categories
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('category.index') }}" class="nav-link">
-                                        <p>Все категории</p>
+                                        <p>Categories</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('category.create') }}" class="nav-link">
-                                        <p>Добавить категорию</p>
+                                        <p>Add category</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-newspaper"></i>
+                                <p>
+                                    Store
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('product.index') }}" class="nav-link">
+                                        <p>All products</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('product.create') }}" class="nav-link">
+                                        <p>Add product</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-align-left"></i>
+                                <p>
+                                    Product categories
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('product_category.index') }}" class="nav-link">
+                                        <p>Categories</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('product_category.create') }}" class="nav-link">
+                                        <p>Add category</p>
                                     </a>
                                 </li>
                             </ul>

@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'All categories')
+@section('title', 'All Products')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">All categories</h1>
+                    <h1 class="m-0">All Products</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -35,27 +35,39 @@
                                 <th>
                                     Name
                                 </th>
+                                <th>
+                                    Category
+                                </th>
+                                <th>
+                                    Date create
+                                </th>
                                 <th style="width: 30%">
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($products as $product)
                                 <tr>
                                     <td>
-                                        {{ $category['id'] }}
+                                        {{ $product['id'] }}
                                     </td>
                                     <td>
-                                        {{ $category['title'] }}
+                                        {{ $product['title'] }}
+                                    </td>
+                                    <td>
+                                        {{ $product->category['title'] }}
+                                    </td>
+                                    <td>
+                                        {{ $product['created_at'] }}
                                     </td>
 
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-info btn-sm" href="{{ route('category.edit', $category['id']) }}">
+                                        <a class="btn btn-info btn-sm" href="{{ route('product.edit', $product['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Edit
                                         </a>
-                                        <form action="{{ route('category.destroy', $category['id']) }}" method="POST"
+                                        <form action="{{ route('product.destroy', $product['id']) }}" method="POST"
                                             style="display: inline-block">
                                             @csrf
                                             @method('DELETE')

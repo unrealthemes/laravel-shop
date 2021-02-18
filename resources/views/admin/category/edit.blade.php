@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Редактирование категории')
+@section('title', 'Edit category')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Редактирование категории: {{ $category['title'] }}</h1>
+                    <h1 class="m-0">Edit category: {{ $category['title'] }}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -33,15 +33,15 @@
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Название</label>
+                                    <label for="exampleInputEmail1">Name</label>
                                     <input type="text" value="{{ $category['title'] }}" name="title" class="form-control"
-                                        id="exampleInputEmail1" placeholder="Введите название категории" required>
+                                        id="exampleInputEmail1" placeholder="Enter category name" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Обновить</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>
