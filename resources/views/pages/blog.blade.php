@@ -67,7 +67,7 @@
 
                       <!-- <p class="post__text">{{$post->text}}</p> -->
 
-                    <a href="15_blog_details.html" class="btn btn-small btn--dark btn-hover-shadow">
+                    <a href="{{ route( 'getPost', [ $post->category['slug'], $post->slug ] ) }}" class="btn btn-small btn--dark btn-hover-shadow">
                       <span class="text">Continue Reading</span>
                       <i class="seoicon-right-arrow"></i>
                     </a>
@@ -82,21 +82,10 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <nav class="navigation">
-
-              <a href="#" class="page-numbers current bg-border-color"><span>1</span></a>
-              <a href="#" class="page-numbers bg-border-color"><span>2</span></a>
-              <a href="#" class="page-numbers bg-border-color"><span>3</span></a>
-              <a href="#" class="page-numbers bg-border-color"><span>4</span></a>
-              <a href="#" class="page-numbers next">
-                <svg class="btn-next">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </a>
-
-            </nav>
+            {{$posts->links('vendor.pagination.default')}}
           </div>
         </div>
+
       </div>
 
 

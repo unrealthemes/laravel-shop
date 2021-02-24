@@ -77,8 +77,8 @@ class PostController extends Controller
         $categories = Category::orderBy('created_at', 'DESC')->get();
 
         return view('admin.post.edit', [
-            'categories' => $categories,
-            'post' => $post,
+            'categories'  => $categories,
+            'post'        => $post,
         ]);
     }
 
