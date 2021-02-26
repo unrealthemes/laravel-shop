@@ -323,16 +323,6 @@
 
 <div class="content-wrapper">
 
-    <!-- Stunning header -->
-
-    <div class="stunning-header stunning-header-bg-lightviolet">
-        <div class="stunning-header-content">
-            <h1 class="stunning-header-title">@yield('title')</h1>
-        </div>
-    </div>
-
-    <!-- End Stunning header -->
-
     <!-- Overlay search -->
 
     <div class="overlay_search">

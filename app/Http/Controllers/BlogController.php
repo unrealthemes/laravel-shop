@@ -25,20 +25,22 @@ class BlogController extends Controller
       $categories = Category::orderBy('title')->withCount('posts')->get();
 
       return view( 'pages.blog', [
-          'posts'       => $current_category->posts()->paginate(4),
-          'categories'  => $categories,
+          'posts'             => $current_category->posts()->paginate(4),
+          'categories'        => $categories,
+          'current_category'  => $current_category,
         ] );
     }
 
     public function getPost( $slug_category, $slug_post ) {
 
       $categories = Category::orderBy('title')->withCount('posts')->get();
+      $current_category = Category::where( 'slug', $slug_category )->first();
       $post = Post::where( 'slug', $slug_post )->first();
 
       return view( 'pages.show-post', [
-          'post'          => $post,
-          'categories'    => $categories,
-          'slug_category' => $slug_category,
+          'post'              => $post,
+          'categories'        => $categories,
+          'current_category'  => $current_category,
         ] );
     }
 }

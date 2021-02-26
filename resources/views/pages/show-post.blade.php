@@ -4,6 +4,8 @@
 
 @section( 'content' )
 
+  @include('includes.breadcrumbs')
+
   <!-- Blog posts-->
 
   <div class="container">
@@ -48,7 +50,7 @@
 
     							<span class="category">
     								<i class="seoicon-tags"></i>
-    								<a href="{{ route( 'getPostsByCategory', $slug_category ) }}">Business</a>
+    								<a href="{{ route( 'getPostsByCategory', $current_category->slug ) }}">{{$current_category->title}}</a>
     							</span>
 
     							<span class="post__comments">

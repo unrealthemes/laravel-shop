@@ -4,6 +4,8 @@
 
 @section('content')
 
+  @include('includes.breadcrumbs')
+
   <!-- Blog posts-->
 
   <div class="container">
@@ -21,7 +23,7 @@
                 <a href="{{$post->img}}" class="link-image js-zoom-image">
                   <i class="seoicon-zoom"></i>
                 </a>
-                <a href="#" class="link-post">
+                <a href="{{ route( 'getPost', [ $post->category['slug'], $post->slug ] ) }}" class="link-post">
                   <i class="seoicon-link-bold"></i>
                 </a>
               </div>
@@ -39,7 +41,7 @@
                 <div class="post__content-info">
 
                     <h2 class="post__title entry-title ">
-                      <a href="15_blog_details.html">{{$post->title}}</a>
+                      <a href="{{ route( 'getPost', [ $post->category['slug'], $post->slug ] ) }}">{{$post->title}}</a>
                     </h2>
 
                     <div class="post-additional-info">
