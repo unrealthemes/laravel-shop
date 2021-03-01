@@ -49,7 +49,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->img = $request->img;
         $post->text = $request->text;
-        $post->cat_id = $request->cat_id;
+        $post->category_id = $request->category_id;
         $post->save();
 
         return redirect()->back()->withSuccess('Статья была успешно добавлена!');
@@ -77,8 +77,8 @@ class PostController extends Controller
         $categories = Category::orderBy('created_at', 'DESC')->get();
 
         return view('admin.post.edit', [
-            'categories' => $categories,
-            'post' => $post,
+            'categories'  => $categories,
+            'post'        => $post,
         ]);
     }
 
@@ -94,7 +94,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->img = $request->img;
         $post->text = $request->text;
-        $post->cat_id = $request->cat_id;
+        $post->category_id = $request->category_id;
         $post->save();
 
         return redirect()->back()->withSuccess('Статья была успешно обновлена!');

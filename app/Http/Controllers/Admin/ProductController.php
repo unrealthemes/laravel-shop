@@ -49,7 +49,7 @@ class ProductController extends Controller
       $product->title   = $request->title;
       $product->img     = $request->img;
       $product->text    = $request->text;
-      $product->cat_id  = $request->cat_id;
+      $product->category_id  = $request->category_id;
       $product->save();
 
       return redirect()->back()->withSuccess('The product has been successfully added!');
@@ -94,7 +94,7 @@ class ProductController extends Controller
         $product->title   = $request->title;
         $product->img     = $request->img;
         $product->text    = $request->text;
-        $product->cat_id  = $request->cat_id;
+        $product->category_id  = $request->category_id;
         $product->save();
 
         return redirect()->back()->withSuccess('The product has been successfully added!');

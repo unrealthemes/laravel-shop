@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('getHome');
+
+Route::get( '/blog', [ BlogController::class, 'index' ] )->name('getBlog');
+Route::get( '/category/{slug}', [ BlogController::class, 'getPostsByCategory' ] )->name('getPostsByCategory');
+Route::get( '/category/{slug_category}/{slug_post}', [ BlogController::class, 'getPost' ] )->name('getPost');
 
 Auth::routes();
 
