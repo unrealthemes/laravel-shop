@@ -46,10 +46,14 @@ class ProductController extends Controller
     public function store(Request $request)
     {
       $product = new Product();
-      $product->title   = $request->title;
-      $product->img     = $request->img;
-      $product->text    = $request->text;
-      $product->category_id  = $request->category_id;
+      $product->title = $request->title;
+      $product->slug = $request->slug;
+      $product->img = $request->img;
+      $product->price = $request->price;
+      $product->new_price = $request->new_price;
+      $product->in_stock = ( $request->in_stock ) ? 1 : 0;
+      $product->description = $request->description;
+      $product->category_id = $request->category_id;
       $product->save();
 
       return redirect()->back()->withSuccess('The product has been successfully added!');
@@ -91,10 +95,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $product->title   = $request->title;
-        $product->img     = $request->img;
-        $product->text    = $request->text;
-        $product->category_id  = $request->category_id;
+        $product->title = $request->title;
+        $product->slug = $request->slug;
+        $product->img = $request->img;
+        $product->price = $request->price;
+        $product->new_price = $request->new_price;
+        $product->in_stock = ( $request->in_stock ) ? 1 : 0;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
         $product->save();
 
         return redirect()->back()->withSuccess('The product has been successfully added!');

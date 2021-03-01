@@ -237,13 +237,13 @@
                         </div>
                     </li>
                     <li class="">
-                        <a href="14_blog.html">Blog</a>
+                        <a href="{{route('getBlog')}}">Blog</a>
                     </li>
                     <li class="">
-                        <a href="#">Shop</a>
+                        <a href="{{route('getShop')}}">Shop</a>
                         <ul class="dropdown">
                             <li class="">
-                                <a href="16_shop.html">
+                                <a href="{{route('getShop')}}">
                                     Shop Page
                                     <i class="seoicon-right-arrow"></i>
                                 </a>
