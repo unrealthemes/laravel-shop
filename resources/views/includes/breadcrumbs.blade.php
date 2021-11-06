@@ -10,8 +10,14 @@
           {{ Breadcrumbs::render( 'category', $current_category ) }}
         @elseif ( Route::currentRouteName() == 'getPost' )
           {{ Breadcrumbs::render( 'post', $current_category, $post ) }}
+        @elseif ( Route::currentRouteName() == 'getShop' )
+          {{ Breadcrumbs::render( 'shop' ) }}
+        @elseif ( Route::currentRouteName() == 'getProductsByCategory' )
+          {{ Breadcrumbs::render( 'product_category', $current_category ) }}
+        @elseif ( Route::currentRouteName() == 'getProduct' )
+          {{ Breadcrumbs::render( 'product', $current_category, $product ) }}
         @endif
-        
+
     </div>
 </div>
 

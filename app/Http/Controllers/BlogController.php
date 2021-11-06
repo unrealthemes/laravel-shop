@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 
+
 class BlogController extends Controller
-{
+{   
+
     public function index() {
 
       $categories = Category::orderBy('title')->withCount('posts')->get();

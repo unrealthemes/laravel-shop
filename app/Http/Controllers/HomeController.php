@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Post;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -21,8 +23,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
-    }
+    public function index() {
+
+        $categories = Category::orderBy('title')->withCount('posts')->get();
+        $posts = Post::latest()->take(9)->get();
+
+        return view( 'home', [
+          'posts' => $posts,
+          'categories'  => $categories,
+        ] );
+      }
 }

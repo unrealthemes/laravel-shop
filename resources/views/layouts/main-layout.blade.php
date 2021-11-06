@@ -20,7 +20,8 @@
     <link rel="stylesheet" type="text/css" href="/css/primary-menu.css">
     <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class=" ">
@@ -59,215 +60,15 @@
 
                 <ul class="primary-menu-menu">
                     <li class="menu-item-has-children">
-                        <a href="index.html">Home</a>
+                        <a href="{{route('home')}}">Home</a>
                     </li>
 
                     <li class="">
-                        <a href="03_services.html">Services</a>
-                        <ul class="dropdown">
-                            <li class="megamenu-item-info">
-                                <h5 class="megamenu-item-info-title">List of Services</h5>
-                                <p class="megamenu-item-info-text">Choose a Service</p>
-                            </li>
-                            <li class="hover-ver2">
-                                <a href="05_service_details_localseo.html"><i class="seoicon-pin-map"></i>
-                                    Local SEO
-                                </a>
-                            </li>
-                            <li class="hover-ver2">
-                                <a href="07_service_email_marketing.html"><i class="seoicon-mail-send"></i>
-                                    Email Marketing
-                                </a>
-                            </li>
-                            <li class="hover-ver2">
-                                <a href="06_service_detail.html"><i class="seoicon-chat-comment"></i>
-                                    Social Media Marketing
-                                </a>
-                            </li>
-                            <li class="menu-item-has-children hover-ver2">
-                                <a href="04_service_detail_seo.html">
-                                    <i class="seoicon-search"></i>
-                                    Search Engine Optimization
-                                </a>
-                            </li>
-                            <li class="hover-ver2">
-                                <a href="08_service_ppc_management.html"><i class="seoicon-button"></i>
-                                    Pay Per Click Management
-                                </a>
-                            </li>
-                            <li class="menu-item-has-children hover-ver2">
-                                <a href="03_services.html">
-                                    <i class="seoicon-pie-graph-split"></i>
-                                    Services Promo List
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="{{route('getBlog')}}">Blog</a>
                     </li>
 
                     <li class="">
-                        <a href="#">Case Studies</a>
-                        <ul class="dropdown">
-                            <li class="">
-                                <a href="11_case_studies.html">
-                                    Case Studies Page
-                                    <i class="seoicon-right-arrow"></i>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="12_project_details_ver_01.html">
-                                    Project details ver1
-                                    <i class="seoicon-right-arrow"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="13_project_details_ver_02.html">
-                                    Project details ver2
-                                    <i class="seoicon-right-arrow"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="has-megamenu menu-item-has-children">
-                        <a href="#">Pages</a>
-
-                        <div class="megamenu" style="background-image: url('/img/menu-bg.png');">
-                            <div class="megamenu-row">
-
-                                <div class="col3">
-                                    <ul>
-                                        <li class="megamenu-item-info">
-                                            <h5 class="megamenu-item-info-title">Standard Pages</h5>
-                                            <p class="megamenu-item-info-text">Pages that every website needs.</p>
-                                        </li>
-
-                                        <li>
-                                            <a href="02_abouts.html">Our Agency<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="21_seo_analysis.html">SEO Analysis<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-
-                                        <li>
-                                            <a href="10_testimonials.html">Testimonials <i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="09_our_clients.html">Our Special Clients<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="34_pricing-tables.html">Pricing Packages<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="404.html">404 Page<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col3">
-                                    <ul>
-                                        <li class="megamenu-item-info">
-                                            <h5 class="megamenu-item-info-title">Features</h5>
-                                            <p class="megamenu-item-info-text">Features of Our Digital Agency.</p>
-                                        </li>
-
-                                        <li>
-                                            <a href="36_slider-with-photo.html">Main slider with photo<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="25_navigation-flat.html">Stunning Headers<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-
-                                        <li>
-                                            <a href="37_navigation-with-photo.html">Sub-headers with photo<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-
-                                        <li>
-                                            <a href="38_photo-elements.html">Photo elements<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-
-                                        <li>
-                                            <a href="32_testimonials.html">Our Testimonials<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                                <div class="col3">
-                                    <ul>
-
-                                        <li class="megamenu-item-info">
-                                            <h5 class="megamenu-item-info-title">Web Elements</h5>
-                                            <p class="megamenu-item-info-text">Awesome header and title style
-                                                variations and many more.</p>
-                                        </li>
-
-                                        <li>
-                                            <a href="typography.html">Typography<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="33_charts_counters.html">Charts &amp; Graphs<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="buttons.html">Buttons<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-
-                                        <li>
-                                            <a href="28_popup-search.html">Popup Search<i class="seoicon-right-arrow"></i></a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-
-
-                                <div class="col3">
-                                    <ul>
-                                        <li>
-                                            <div class="google-logo">
-                                                <img src="/img/google-logo.png" alt="logo">
-                                            </div>
-
-                                            <p class="google-text">The Yoast Analytics plugin lets you easily
-                                                connect your website to Google Analytics and keep track of all
-                                                your site traffic and key metrics in real-time.
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="">
-                        <a href="14_blog.html">Blog</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Shop</a>
-                        <ul class="dropdown">
-                            <li class="">
-                                <a href="16_shop.html">
-                                    Shop Page
-                                    <i class="seoicon-right-arrow"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="17_product_details.html">
-                                    Product Details
-                                    <i class="seoicon-right-arrow"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="20_checkout.html">
-                                    Checkout
-                                    <i class="seoicon-right-arrow"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="19_cart.html">
-                                    Shopping Cart
-                                    <i class="seoicon-right-arrow"></i>
-                                </a>
-                            </li>
-                        </ul>
-
+                        <a href="{{route('getShop')}}">Shop</a>
                     </li>
 
                     <li class="">
@@ -275,6 +76,20 @@
                     </li>
                 </ul>
             </nav>
+
+            <!-- @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif -->
 
             <ul class="nav-add">
                 <li class="cart">
@@ -385,7 +200,7 @@
 <!-- Footer -->
 
 <footer class="footer">
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
 
             <div class="info">
@@ -524,7 +339,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <div class="sub-footer">
         <div class="container">
@@ -600,6 +415,7 @@
 <script src="/js/velocity.min.js"></script>
 <script src="/js/ScrollMagic.min.js"></script>
 <script src="/js/animation.velocity.min.js"></script>
+@yield('custom_js')
 
 <!-- ...end JS Script -->
 
