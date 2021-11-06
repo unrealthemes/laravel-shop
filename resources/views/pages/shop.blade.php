@@ -27,17 +27,16 @@
 
                       <div class="books-grid-control">
                           <div class="showing">
-                              Showing <span>1-9</span> of <span>24</span> results
+                              Showing <span>{{$products->count()}}</span> results
                           </div>
 
                          <div class="sort">
                              <select>
-                                 <option data-display="Default sorting">Default sorting</option>
-                                 <option value="1">Sort by popularity</option>
-                                 <option value="2">Sort by average rating</option>
-                                 <option value="3">Sort by newness</option>
-                                 <option value="4">Sort by price: low to high</option>
-                                 <option value="3">Sort by price: high to low</option>
+                                 <option value="default" data-display="Default sorting">Default sorting</option>
+                                 <option value="price-low-high">Price: low to high</option>
+                                 <option value="price-high-low">Price: high to low</option>
+                                 <option value="name-a-z">Name: A-Z</option>
+                                 <option value="name-z-a">Name: Z-A</option>
                              </select>
                           </div>
 
@@ -45,49 +44,55 @@
 
               </div>
           </div>
+          <div class="products_wrapper">
 
-          @foreach ( $products as $product )
+            @foreach ( $products as $product )
 
-            @if ( $loop->iteration == 1 || $loop->iteration % 4 == 0 )
-              <div class="row mb30">
-            @endif
+              @if ( $loop->iteration == 1 || $loop->iteration % 4 == 0 )
+                <div class="row mb30">
+              @endif
 
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="books-item new">
-                    <div class="books-item-thumb">
-                        <img src="{{$product->img}}" alt="book">
-                        <!-- <div class="new">New</div> -->
-                        <!-- <div class="sale">Sale</div> -->
-                        <div class="overlay overlay-books"></div>
-                    </div>
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="books-item new">
+                      <div class="books-item-thumb">
+                          <a href="{{ route( 'getProduct', [ $product->category['slug'], $product->slug ] ) }}">
+                              <img src="{{$product->img}}" alt="book">
+                              <!-- <div class="new">New</div> -->
+                              <!-- <div class="sale">Sale</div> -->
+                              <div class="overlay overlay-books"></div>
+                          </a>
+                      </div>
 
-                    <div class="books-item-info">
-                        <div class="books-author">{{$product->category['title']}}</div>
-                        <h5 class="books-title">{{$product->title}}</h5>
-                        <div class="books-price">
-                          @if ( $product->new_price )
-                            <span class="del">${{$product->price}}</span>
-                            ${{$product->new_price}}
-                          @else
-                            ${{$product->price}}
-                          @endif
-                        </div>
-                    </div>
+                      <div class="books-item-info">
+                          <a href="{{route('getProductsByCategory', $product->category['slug'])}}" class="books-author">
+                            {{$product->category['title']}}
+                          </a>
+                          <h5 class="books-title"><a href="{{ route( 'getProduct', [ $product->category['slug'], $product->slug ] ) }}">{{$product->title}}</a></h5>
+                          <div class="books-price">
+                            @if ( $product->new_price )
+                              <span class="del">${{$product->price}}</span>
+                              ${{$product->new_price}}
+                            @else
+                              ${{$product->price}}
+                            @endif
+                          </div>
+                      </div>
 
-                    <a href="{{ route( 'getProduct', [ $product->category['slug'], $product->slug ] ) }}" class="btn btn-small btn--dark add">
-                        <span class="text">Add to Cart</span>
-                        <i class="seoicon-commerce"></i>
-                    </a>
+                      <button class="btn btn-small btn--dark add">
+                          <span class="text">Add to Cart</span>
+                          <i class="seoicon-commerce"></i>
+                      </button>
 
-                </div>
-            </div>
-
-            @if ( $loop->iteration % 3 == 0 )
+                  </div>
               </div>
-            @endif
 
-          @endforeach
+              @if ( $loop->iteration % 3 == 0 )
+                </div>
+              @endif
 
+            @endforeach
+
+          </div>
           <div class="row pb120">
               <div class="col-lg-12">
                   {{$products->links('vendor.pagination.default')}}
@@ -99,4 +104,37 @@
 
   <!-- End Books products grid -->
 
+@endsection
+
+@section('custom_js')
+  <script>
+    $(document).ready( function() {
+       $('.sort select').on('change', function(event) {
+          let orderBy = this.value;
+          $.ajax({
+              url: "@if(Route::currentRouteName() == 'getShop'){{route('getShop')}}@else{{route('getProductsByCategory', $product->category['slug'])}}@endif",
+              type: "GET",
+              data: {
+                  orderBy: orderBy,
+                  page: {{isset($_GET['page']) ? $_GET['page'] : 1}},
+              },
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              success: (data) => {
+                  let positionParameters = location.pathname.indexOf('?');
+                  let url = location.pathname.substring(positionParameters,location.pathname.length);
+                  let newURL = url + '?'; // http://127.0.0.1:8001/phones?
+                  newURL += "&page={{isset($_GET['page']) ? $_GET['page'] : 1}}" + '&orderBy=' + orderBy; // http://127.0.0.1:8001/phones?orderBy=name-z-a
+                  history.pushState({}, '', newURL);
+                  $('.navigation a').each( function( index, value ) {
+                      let link= $(this).attr('href');
+                      $(this).attr( 'href', link + '&orderBy=' + orderBy );
+                  });
+                  $('.products_wrapper').html( data );
+              }
+          });
+       });
+    });
+  </script>
 @endsection
