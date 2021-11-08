@@ -72,7 +72,7 @@
                     </li>
 
                     <li class="">
-                        <a href="22_contacts.html">Contacts</a>
+                        <a href="{{route('getContacts')}}">Contacts</a>
                     </li>
                 </ul>
             </nav>
@@ -405,7 +405,8 @@
 
 <!-- JS Script -->
 
-<script src="/js/jquery-2.1.4.min.js"></script>
+<!-- <script src="/js/jquery-2.1.4.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="/js/crum-mega-menu.js"></script>
 <script src="/js/swiper.jquery.min.js"></script>
 <script src="/js/theme-plugins.js"></script>

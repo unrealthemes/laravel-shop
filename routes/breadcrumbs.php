@@ -5,11 +5,11 @@ Breadcrumbs::for('home', function ($trail) {
     $trail->push('Home', route('home'));
 });
 
-// Home > About
-// Breadcrumbs::for('about', function ($trail) {
-//     $trail->parent('home');
-//     $trail->push('About', route('about'));
-// });
+// Home > Contacts
+Breadcrumbs::for('contacts', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Contacts', route('getContacts'));
+});
 
 /**
  * Blog section
