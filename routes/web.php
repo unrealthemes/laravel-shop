@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ContactsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,10 @@ Route::get( '/products/category/{slug_category}/{slug_product}', [ ShopControlle
 Route::get( '/blog', [ BlogController::class, 'index' ] )->name('getBlog');
 Route::get( '/blog/category/{slug}', [ BlogController::class, 'getPostsByCategory' ] )->name('getPostsByCategory');
 Route::get( '/blog/category/{slug_category}/{slug_post}', [ BlogController::class, 'getPost' ] )->name('getPost');
+
+// Contacts
+Route::get( '/contacts', [ ContactsController::class, 'index' ] )->name('getContacts');
+Route::post('submit-contacts-form', [ ContactsController::class, 'submit' ]  )->name('submitContactsForm');
 
 // Admin panel
 Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {

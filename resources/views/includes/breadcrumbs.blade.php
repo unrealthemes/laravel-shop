@@ -16,6 +16,8 @@
           {{ Breadcrumbs::render( 'product_category', $current_category ) }}
         @elseif ( Route::currentRouteName() == 'getProduct' )
           {{ Breadcrumbs::render( 'product', $current_category, $product ) }}
+        @elseif ( Route::currentRouteName() == 'getContacts' )
+          {{ Breadcrumbs::render( 'contacts' ) }}
         @endif
 
     </div>
