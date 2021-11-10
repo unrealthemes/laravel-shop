@@ -60,7 +60,7 @@
 
                 <ul class="primary-menu-menu">
                     <li class="menu-item-has-children">
-                        <a href="{{route('home')}}">Home</a>
+                        <a href="{{route('home')}}">HOME</a>
                     </li>
 
                     <li class="">
