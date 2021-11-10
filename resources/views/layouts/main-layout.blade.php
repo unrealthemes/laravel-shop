@@ -72,7 +72,7 @@
                     </li>
 
                     <li class="">
-                        <a href="{{route('getContacts')}}">Contacts</a>
+                        <a href="{{route('getContacts')}}">CONTACTS</a>
                     </li>
                 </ul>
             </nav>
