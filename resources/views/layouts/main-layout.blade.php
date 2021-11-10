@@ -64,7 +64,7 @@
                     </li>
 
                     <li class="">
-                        <a href="{{route('getBlog')}}">Blog</a>
+                        <a href="{{route('getBlog')}}">BLOG</a>
                     </li>
 
                     <li class="">
