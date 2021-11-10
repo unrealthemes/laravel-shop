@@ -68,7 +68,7 @@
                     </li>
 
                     <li class="">
-                        <a href="{{route('getShop')}}">Shop</a>
+                        <a href="{{route('getShop')}}">SHOP</a>
                     </li>
 
                     <li class="">
