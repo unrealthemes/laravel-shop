@@ -23,26 +23,62 @@
 
       <div class="books-grid">
           <div class="row">
-              <div class="col-lg-12">
+            <form action="{{route('getShop')}}" method="get" style="margin-bottom: 60px;">
 
-                      <div class="books-grid-control">
-                          <div class="showing">
-                              Showing <span>{{$products->count()}}</span> results
-                          </div>
+              <div class="col-lg-8">
+                <input name="search" class="email input-standard-grey" placeholder="Search" type="text" @if(isset($_GET['search'])) value="{{$_GET['search']}}" @endif>
+              </div>
 
-                         <div class="sort">
-                             <select>
+              <div class="col-lg-4">
+                <div class="sort">
+                    <select name="category_id">
+                        <option value="default" data-display="Choose category">Choose category</option>
+                        
+                        @foreach( $categories as $category )
+                            <option value="{{$category->id}}" @if(isset($_GET['category_id'])) @if($_GET['category_id'] == $category->id) selected @endif @endif>
+                                {{$category->title}}
+                            </option>
+                        @endforeach
+
+                    </select>
+                </div>
+              </div>
+
+              <div class="col-lg-8">
+
+                      <div class="books-grid-control" style="text-align: left;">
+                         <div class="sort" style="margin-right: 60px;">
+                             <select name="sort">
                                  <option value="default" data-display="Default sorting">Default sorting</option>
-                                 <option value="price-low-high">Price: low to high</option>
-                                 <option value="price-high-low">Price: high to low</option>
-                                 <option value="name-a-z">Name: A-Z</option>
-                                 <option value="name-z-a">Name: Z-A</option>
+                                    <option value="price-low-high" @if(isset($_GET['sort'])) @if($_GET['sort'] == 'price-low-high') selected @endif @endif>
+                                        Price: low to high
+                                    </option>
+                                    <option value="price-high-low" @if(isset($_GET['sort'])) @if($_GET['sort'] == 'price-high-low') selected @endif @endif>
+                                        Price: high to low
+                                    </option>
+                                    <option value="name-a-z" @if(isset($_GET['sort'])) @if($_GET['sort'] == 'name-a-z') selected @endif @endif>
+                                        Name: A-Z
+                                    </option>
+                                    <option value="name-z-a" @if(isset($_GET['sort'])) @if($_GET['sort'] == 'name-z-a') selected @endif @endif>
+                                        Name: Z-A
+                                    </option>
                              </select>
                           </div>
-
+                          <div class="showing" style="margin-right: 0;">
+                              Showing <span>{{$products->count()}}</span> results
+                          </div>
                       </div>
 
               </div>
+
+              <div class="col-lg-4">
+                <button class="btn btn-medium btn--breez btn-hover-shadow" type="submit" style="width: 100%;">
+                    <span class="text">Filter</span>
+                    <span class="semicircle"></span>
+                </button>
+              </div>
+
+            </form>
           </div>
           <div class="products_wrapper">
 
@@ -95,7 +131,8 @@
           </div>
           <div class="row pb120">
               <div class="col-lg-12">
-                  {{$products->links('vendor.pagination.default')}}
+                  <!-- {{$products->links('vendor.pagination.default')}} -->
+                  {{$products->withQueryString()->links('vendor.pagination.default')}}
               </div>
           </div>
 
@@ -107,7 +144,7 @@
 @endsection
 
 @section('custom_js')
-  <script>
+  <!-- <script>
     $(document).ready( function() {
        $('.sort select').on('change', function(event) {
           let orderBy = this.value;
@@ -136,5 +173,5 @@
           });
        });
     });
-  </script>
-@endsection
+  </script> -->
+@endsection 
